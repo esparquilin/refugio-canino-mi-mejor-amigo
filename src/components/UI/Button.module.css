@@ -1,0 +1,15 @@
+.button {
+  border-radius: 6px;
+  border: none;
+  transition: all 0.3s;
+  padding: 1.6rem;
+  font-weight: 600;
+  color: var(--color-gray-7);
+  cursor: pointer;
+}
+.button:disabled {
+  cursor: not-allowed;
+  transition: all 0.3s;
+  color: var(--color-gray-5);
+  background-color: var(--color-gray-2);
+}

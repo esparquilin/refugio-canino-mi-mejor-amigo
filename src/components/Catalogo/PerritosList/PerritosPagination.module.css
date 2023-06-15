@@ -1,0 +1,36 @@
+.pagination {
+  padding: 2.4rem 0;
+  display: flex;
+  gap: 4.8rem;
+  justify-content: center;
+  align-items: center;
+}
+.pages {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  justify-content: center;
+}
+
+.button-class {
+  background-color: var(--color-gray-3);
+}
+
+.button-class:hover {
+  background-color: var(--color-primary-dark-1);
+}
+
+.current-page {
+  background-color: var(--color-primary-dark-1);
+}
+
+.prev-next {
+  display: inline-block;
+}
+
+@media (max-width: 37.5em) {
+  .prev,
+  .next {
+    display: none;
+  }
+}

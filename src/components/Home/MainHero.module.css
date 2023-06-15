@@ -1,0 +1,92 @@
+.image-container {
+  height: 100vh;
+  width: 100%;
+  /* margin: 0 4.8rem; */
+}
+
+.backdrop-image {
+  background-image: linear-gradient(
+      to right,
+      rgba(0, 0, 0, 0.5),
+      rgba(0, 0, 0, 0.9)
+    ),
+    url(../../assets/images/main.jpg);
+  height: 100%;
+  width: 100%;
+  background-size: cover;
+  background-position: center;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  align-items: center;
+  color: white;
+  text-align: center;
+}
+
+.backdrop-image h1 {
+  font-weight: 700;
+  font-size: 5.2rem;
+}
+.backdrop-image h1 span {
+  color: var(--color-secondary);
+}
+
+.backdrop-image h2 {
+  font-size: 2.8rem;
+  margin: 0 4.8rem;
+}
+
+@media (max-width: 62.5em) {
+  .backdrop-image h1 {
+    font-size: 4.4rem;
+  }
+
+  .backdrop-image h2 {
+    font-size: 2.4rem;
+  }
+}
+
+@media (max-width: 52.5em) {
+  .backdrop-image {
+    grid-template-columns: 4fr 6fr;
+  }
+
+  .backdrop-image h1 {
+    font-size: 3.8rem;
+  }
+
+  .backdrop-image h2 {
+    font-size: 2.4rem;
+  }
+}
+
+@media (max-width: 37.5em) {
+  .backdrop-image h1 {
+    font-size: 3.5rem;
+  }
+  .backdrop-image h1 span {
+    font-size: 3rem;
+  }
+
+  .backdrop-image h2 {
+    font-size: 1.8rem;
+    margin: 0 1rem;
+  }
+}
+
+@media (max-width: 31em) {
+  .backdrop-image {
+    grid-template-columns: 3fr 7fr;
+  }
+
+  .backdrop-image h1 {
+    font-size: 2.8rem;
+  }
+  .backdrop-image h1 span {
+    font-size: 2.6rem;
+  }
+
+  .backdrop-image h2 {
+    font-size: 1.6rem;
+    margin: 0 1rem;
+  }
+}

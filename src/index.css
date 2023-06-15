@@ -1,0 +1,85 @@
+@import url("https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;600;700;800&display=swap");
+
+* {
+  box-sizing: border-box;
+}
+
+:root {
+  --color-primary: #bba3e3;
+  --color-secondary: #4cb39b;
+  --color-dark: #000;
+  --color-white: #fff;
+
+  --color-primary-dark-1: #a894cc;
+  --color-primary-dark-2: #9682b6;
+  --color-primary-dark-3: #83729f;
+  --color-primary-dark-4: #706288;
+  --color-primary-dark-5: #5e5272;
+  --color-primary-dark-6: #4b415b;
+  --color-primary-dark-7: #383144;
+  --color-primary-dark-8: #25212d;
+  --color-primary-dark-9: #131017;
+
+  --color-primary-light-1: #c2ace6;
+  --color-primary-light-2: #c9b5e9;
+  --color-primary-light-3: #cfbfeb;
+  --color-primary-light-4: #d6c8ee;
+  --color-primary-light-5: #ddd1f1;
+  --color-primary-light-6: #e4daf4;
+  --color-primary-light-7: #ebe3f7;
+  --color-primary-light-8: #f1edf9;
+  --color-primary-light-9: #f8f6fc;
+
+  --color-secondary-dark-1: #44a18c;
+  --color-secondary-dark-2: #3d8f7c;
+  --color-secondary-dark-3: #357d6d;
+  --color-secondary-dark-4: #2e6b5d;
+  --color-secondary-dark-5: #265a4e;
+  --color-secondary-dark-6: #1e483e;
+  --color-secondary-dark-7: #17362e;
+  --color-secondary-dark-8: #0f241f;
+  --color-secondary-dark-9: #08120f;
+
+  --color-secondary-light-1: #5ebba5;
+  --color-secondary-light-2: #70c2af;
+  --color-secondary-light-3: #82cab9;
+  --color-secondary-light-4: #94d1c3;
+  --color-secondary-light-5: #a6d9cd;
+  --color-secondary-light-6: #b7e1d7;
+  --color-secondary-light-7: #c9e8e1;
+  --color-secondary-light-8: #dbf0eb;
+  --color-secondary-light-9: #edf7f5;
+
+  --color-gray-0: #f8f9fa;
+  --color-gray-1: #f1f3f5;
+  --color-gray-2: #e9ecef;
+  --color-gray-3: #dee2e6;
+  --color-gray-4: #ced4da;
+  --color-gray-5: #adb5bd;
+  --color-gray-6: #868e96;
+  --color-gray-7: #495057;
+  --color-gray-8: #343a40;
+  --color-gray-9: #212529;
+
+  --color-warning: #c92a2a;
+}
+
+html {
+  font-size: 62.5%;
+  color: var(--color-gray-8);
+}
+
+body {
+  font-family: "Rubik", sans-serif;
+  line-height: 1;
+  font-weight: 400;
+  margin: 0;
+  padding: 0;
+}
+
+ul,
+ol {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}

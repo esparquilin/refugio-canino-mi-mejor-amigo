@@ -1,0 +1,74 @@
+.carousel {
+  margin: 4.8rem 0 9.6rem;
+  padding: 4.8rem 0 9.6rem;
+  background-color: var(--color-primary-light-7);
+  border-radius: 10px;
+}
+
+.title {
+  text-align: center;
+  font-weight: 600;
+  font-size: 4.8rem;
+}
+
+@media (max-width: 84em) {
+  .carousel {
+    height: 70rem;
+    margin: 4.8rem 0 9.6rem;
+    padding: 3.6rem 0 4.8rem;
+  }
+
+  .title {
+    font-size: 4.2rem;
+  }
+}
+
+@media (max-width: 75em) {
+  .carousel {
+    margin: 4.8rem 0 9.6rem;
+    padding: 3.6rem 0 4.8rem;
+  }
+
+  .title {
+    font-size: 3.6rem;
+  }
+
+  .carousel {
+    margin: 4.8rem 0 9.6rem;
+    padding: 3.6rem 0 6.4rem;
+    background-color: var(--color-primary-light-7);
+    border-radius: 10px;
+    /* background-color: black; */
+  }
+}
+
+@media (max-width: 75em) {
+  .carousel {
+    height: 70rem;
+  }
+}
+
+@media (max-width: 62.5em) {
+  .carousel {
+    height: 70rem;
+  }
+  .title {
+    font-size: 2.8rem;
+  }
+}
+
+@media (max-width: 52.5em) {
+  .carousel {
+    height: 80rem;
+  }
+}
+
+@media (max-width: 31em) {
+  .title {
+    font-size: 2rem;
+  }
+
+  .carousel {
+    height: 78rem;
+  }
+}

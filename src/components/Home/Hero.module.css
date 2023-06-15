@@ -1,0 +1,51 @@
+.hero {
+  display: grid;
+  gap: 9.6rem;
+  padding: 4.8rem 0;
+  grid-template-columns: repeat(2, 1fr);
+  align-items: center;
+}
+.hero h1 {
+  text-transform: uppercase;
+  display: block;
+  color: var(--color-gray-dark-1);
+  font-weight: 700;
+  font-size: 5.2rem;
+  letter-spacing: -1px;
+}
+
+.hero span {
+  font-weight: 700;
+  color: var(--color-secondary-dark-1);
+}
+
+.hero p {
+  display: block;
+  color: var(--color-gray-dark-1);
+  font-weight: 500;
+  font-size: 2rem;
+  line-height: 1.6;
+  text-align: justify;
+}
+
+.hero img {
+  width: 100%;
+}
+
+@media (max-width: 62.5em) {
+  .hero h1 {
+    font-size: 4.4rem;
+  }
+
+  .hero {
+    grid-template-columns: 1fr;
+    gap: 3.6rem;
+    margin: 2.4rem 0;
+  }
+}
+
+@media (max-width: 37.5em) {
+  .hero p {
+    font-size: 1.8rem;
+  }
+}

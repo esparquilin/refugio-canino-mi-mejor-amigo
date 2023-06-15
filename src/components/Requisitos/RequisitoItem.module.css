@@ -1,0 +1,232 @@
+.container {
+  height: 100vh;
+  background-image: linear-gradient(
+      to bottom,
+      rgba(0, 0, 0, 0.7),
+      rgba(0, 0, 0, 0.4)
+    ),
+    url(../../assets/images/backdrop-image.jpg);
+  background-position: center;
+  background-size: cover;
+  position: relative;
+}
+
+.big-card {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  /* background-color: aquamarine; */
+  transform: translate(-50%, -50%);
+  height: 55rem;
+  width: 70rem;
+  color: aliceblue;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 1px 8px rgb(0, 0, 0, 0);
+  background-color: rgba(0, 0, 0, 0.3);
+}
+
+.text h1 {
+  font-size: 4.8rem;
+  text-align: center;
+  color: var(--color-secondary);
+}
+
+.text p {
+  font-size: 2.4rem;
+}
+
+.buttons {
+  display: flex;
+  justify-content: space-around;
+}
+
+.requisito h2 {
+  font-size: 4.8rem;
+}
+
+.requisito p {
+  font-size: 2.8rem;
+}
+
+.requisito .text2 {
+  font-size: 1.8rem;
+}
+
+.button {
+  background-color: var(--color-secondary-light-2);
+}
+
+.left {
+  background-color: var(--color-secondary-light-8);
+}
+
+.button:hover {
+  background-color: var(--color-secondary);
+  color: white;
+}
+
+@media (max-width: 84em) {
+  .big-card {
+    height: 55rem;
+  }
+
+  .text h1 {
+    font-size: 4.8rem;
+    text-align: center;
+    color: var(--color-secondary);
+  }
+
+  .text p {
+    font-size: 2.4rem;
+  }
+
+  .requisito h2 {
+    font-size: 3.6rem;
+  }
+
+  .requisito p {
+    font-size: 2.8rem;
+  }
+
+  .requisito .text2 {
+    font-size: 1.8rem;
+  }
+}
+@media (max-width: 75em) {
+  .big-card {
+    height: 55rem;
+  }
+
+  .text h1 {
+    font-size: 4.8rem;
+    text-align: center;
+    color: var(--color-secondary);
+  }
+
+  .text p {
+    font-size: 2.4rem;
+  }
+
+  .requisito h2 {
+    font-size: 3.6rem;
+  }
+
+  .requisito p {
+    font-size: 2.8rem;
+  }
+
+  .requisito .text2 {
+    font-size: 1.8rem;
+  }
+}
+@media (max-width: 62.5em) {
+  .big-card {
+    height: 50rem;
+  }
+
+  .text h1 {
+    font-size: 4.8rem;
+    text-align: center;
+    color: var(--color-secondary);
+  }
+
+  .text p {
+    font-size: 2.4rem;
+  }
+
+  .requisito h2 {
+    font-size: 3.6rem;
+  }
+
+  .requisito p {
+    font-size: 2.8rem;
+  }
+
+  .requisito .text2 {
+    font-size: 1.8rem;
+  }
+}
+
+@media (max-width: 52.5em) {
+  .big-card {
+    height: 50rem;
+    width: 60rem;
+  }
+
+  .text h1 {
+    font-size: 4.4rem;
+    text-align: center;
+  }
+
+  .text p {
+    font-size: 2.4rem;
+  }
+
+  .requisito h2 {
+    font-size: 3.2rem;
+  }
+
+  .requisito p {
+    font-size: 2.4rem;
+  }
+
+  .requisito .text2 {
+    font-size: 1.6rem;
+  }
+}
+@media (max-width: 37.5em) {
+  .big-card {
+    height: 60rem;
+    width: 40rem;
+  }
+
+  .text h1 {
+    font-size: 4.4rem;
+    text-align: center;
+  }
+
+  .text p {
+    font-size: 2.4rem;
+  }
+
+  .requisito h2 {
+    font-size: 3.2rem;
+  }
+
+  .requisito p {
+    font-size: 2.4rem;
+  }
+
+  .requisito .text2 {
+    font-size: 1.6rem;
+  }
+}
+
+@media (max-width: 31em) {
+  .big-card {
+    height: 55rem;
+    width: 30rem;
+  }
+
+  .text h1 {
+    font-size: 3.6rem;
+    text-align: center;
+  }
+
+  .text p {
+    font-size: 2rem;
+  }
+
+  .requisito h2 {
+    font-size: 2.8rem;
+  }
+
+  .requisito p {
+    font-size: 1.6rem;
+  }
+
+  .requisito .text2 {
+    font-size: 1.6rem;
+  }
+}
