@@ -6,7 +6,7 @@ const Error = () => {
   return (
     <Card customCard={classes.card}>
       <h1>¡Ha ocurrido un error! </h1>
-      <p>Lo solucionaremos lo más pronto posible</p>
+      <p>:(</p>
       <div className={classes.flex}>
         <Link to="/">Regresar</Link>
       </div>
