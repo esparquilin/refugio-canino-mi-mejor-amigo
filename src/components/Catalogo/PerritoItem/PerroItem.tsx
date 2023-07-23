@@ -1,6 +1,6 @@
 import classes from "./PerroItem.module.css";
 
-import { useContext } from "react";
+import { useState, useContext } from "react";
 
 import {
   transformName,
@@ -9,7 +9,6 @@ import {
   behaviour,
 } from "../../Helpers/transformName";
 
-import { useState } from "react";
 import Card from "../../UI/Card";
 import { useParams } from "react-router-dom";
 import Button from "../../UI/Button";
