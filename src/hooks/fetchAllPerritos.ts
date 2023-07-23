@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 
 import { allDogsData } from "../interfaces/dogInterfaces";
-
+//react hook
 const useFetchAllPerritos = (
   page: number,
   filterSize: String,
