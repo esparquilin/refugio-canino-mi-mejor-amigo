@@ -1,12 +1,12 @@
 import { useState, useEffect } from "react";
 
-import { allDogsData } from "../interfaces/dogInterfaces";
+import { allDogsData, dogData } from "../interfaces/dogInterfaces";
 //react hook
-const useFetchAllPerritos = (
+export const useFetchAllPerritos = (
+  apiURL: string | undefined,
   page: number,
   filterSize: String,
-  sortBy: string,
-  apiURL: string | undefined
+  sortBy: string
 ) => {
   const [isLoading, setIsLoading] = useState(true);
   const [data, setData] = useState<allDogsData>();
@@ -37,4 +37,25 @@ const useFetchAllPerritos = (
   return { isLoading, data, pageNumbers };
 };
 
-export default useFetchAllPerritos;
+export const useFetchSingleDog = (
+  apiURL: String | undefined,
+  perro: String | undefined
+) => {
+  const [isLoading, setIsLoading] = useState(true);
+  const [dogDescription, setDogDescription] = useState<dogData | null>(null);
+
+  useEffect(() => {
+    const fetchDogDescription = async () => {
+      const response = await fetch(`${apiURL}/${perro}`);
+
+      const { data } = await response.json();
+
+      setDogDescription(data);
+      setIsLoading(false);
+    };
+
+    fetchDogDescription();
+  }, [perro, apiURL]);
+
+  return { isLoading, dogDescription };
+};
