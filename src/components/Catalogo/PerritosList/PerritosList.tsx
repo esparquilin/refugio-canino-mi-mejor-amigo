@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import Wrapper from "../../Helpers/Wrapper";
 
 import perrito from "../../../assets/images/no-perritos.jpg";
@@ -9,13 +9,12 @@ import IsLoading from "../../Helpers/isLoading";
 import FilterPerritos from "./FilterPerritos";
 import PerritosCards from "./PerritosCards";
 import PerritosPagination from "./PerritosPagination";
-import { allDogsData } from "../../../interfaces/dogInterfaces";
+import useFetchAllPerritos from "../../../hooks/fetchAllPerritos";
 
 const PerritosList = () => {
-  const [isLoading, setIsLoading] = useState(true);
-  const [pageNumbers, setPageNumbers] = useState<number[]>([]);
+  const apiURL = process.env.REACT_APP_API_URL;
+
   const [curPage, setCurPage] = useState(0);
-  const [data, setData] = useState<allDogsData>();
   const [page, setPage] = useState(1);
   const [sizeData, setSizeData] = useState({
     xs: true,
@@ -25,11 +24,15 @@ const PerritosList = () => {
     xl: true,
   });
   const [showForm, setShowForm] = useState(false);
-
   const [sortBy, setSortBy] = useState("dogName");
   const [filterSize, setFilterSize] = useState("");
 
-  const apiURL = process.env.REACT_APP_API_URL;
+  const { isLoading, data, pageNumbers } = useFetchAllPerritos(
+    page,
+    filterSize,
+    sortBy,
+    apiURL
+  );
 
   const onChangeSizeData = (event: React.ChangeEvent<HTMLInputElement>) => {
     const { name, checked } = event.target;
@@ -41,6 +44,10 @@ const PerritosList = () => {
       };
     });
   };
+
+  if (isLoading) {
+    return <IsLoading />;
+  }
 
   const onSumbitHandler = (event: any) => {
     window.scrollTo(0, 0);
@@ -62,28 +69,6 @@ const PerritosList = () => {
     setSortBy(event.target.sortBy.value);
   };
 
-  useEffect(() => {
-    const loadPerritos = async () => {
-      setIsLoading(true);
-      const response = await fetch(
-        `${apiURL}/?page=${page}&sort=${sortBy}&size=${filterSize}`
-      );
-
-      const { data } = await response.json();
-
-      setData(data);
-      setPageNumbers(
-        Array.from(
-          { length: data!.pagination!.totalPages },
-          (_: any, i: number) => i
-        )
-      );
-      setIsLoading(false);
-    };
-
-    loadPerritos();
-  }, [page, filterSize, sortBy, apiURL]);
-
   const prevPage = () => {
     setCurPage((prev) => prev - 1);
     setPage((prev) => {
@@ -103,10 +88,6 @@ const PerritosList = () => {
       } else return data!.pagination.totalPages;
     });
   };
-
-  if (isLoading) {
-    return <IsLoading />;
-  }
 
   return (
     <>
