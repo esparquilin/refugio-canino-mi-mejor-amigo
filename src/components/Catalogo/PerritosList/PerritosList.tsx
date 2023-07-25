@@ -27,12 +27,12 @@ const PerritosList = () => {
   const [sortBy, setSortBy] = useState("dogName");
   const [filterSize, setFilterSize] = useState("");
 
-  const { isLoading, data, pageNumbers } = useFetchAllPerritos(
+  const { isLoading, data, pageNumbers } = useFetchAllPerritos({
     apiURL,
     page,
     filterSize,
-    sortBy
-  );
+    sortBy,
+  });
 
   const onChangeSizeData = (event: React.ChangeEvent<HTMLInputElement>) => {
     const { name, checked } = event.target;

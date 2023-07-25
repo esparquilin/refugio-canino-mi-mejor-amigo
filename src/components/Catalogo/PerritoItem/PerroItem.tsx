@@ -8,14 +8,17 @@ import {
   transformSize,
   behaviour,
 } from "../../Helpers/transformName";
+import IsLoading from "../../Helpers/isLoading";
 
 import Card from "../../UI/Card";
-import { useParams } from "react-router-dom";
 import Button from "../../UI/Button";
+
+import { useParams } from "react-router-dom";
 import { FormContext } from "../../../store/form-context";
+
 import AdoptarForm from "../../form/AdoptarForm";
 import FormSent from "../../form/FormSent";
-import IsLoading from "../../Helpers/isLoading";
+
 import { useFetchSingleDog } from "../../../hooks/fetchPerritos";
 
 const apiURL = process.env.REACT_APP_API_URL;
@@ -27,7 +30,7 @@ const PerroItem = () => {
 
   const { perro } = useParams();
 
-  const { isLoading, dogDescription } = useFetchSingleDog(apiURL, perro);
+  const { isLoading, dogDescription } = useFetchSingleDog({ apiURL, perro });
 
   const createDate = (year: string, month: string) => {
     const date = new Date(`${year}, ${month}, 1`).getTime();
