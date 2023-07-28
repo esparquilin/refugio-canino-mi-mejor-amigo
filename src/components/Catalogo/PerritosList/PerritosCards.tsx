@@ -31,7 +31,7 @@ const PerritosCards: React.FC<perritosPaginationProps> = ({ data }) => {
 
   return (
     <ul className={classes.list}>
-      {data!.allDogs.map((perrito, indx) => (
+      {data!.allDogs.map((perrito, _) => (
         <Card customCard={classes.card} key={perrito.id}>
           <li>
             <div className={classes["image-container"]}>

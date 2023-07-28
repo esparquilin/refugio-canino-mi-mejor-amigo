@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { allDogsData, dogData } from "../interfaces/dogInterfaces";
 
-export const useFetchAllPerritos = ({
+export const useAllPerritos = ({
   apiURL,
   page,
   filterSize,
@@ -53,7 +53,7 @@ export const useFetchAllPerritos = ({
   return { isLoading, data, pageNumbers };
 };
 
-export const useFetchSingleDog = ({
+export const useSingleDog = ({
   apiURL,
   perro,
 }: {

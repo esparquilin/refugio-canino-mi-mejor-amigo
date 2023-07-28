@@ -19,31 +19,22 @@ import { FormContext } from "../../../store/form-context";
 import AdoptarForm from "../../form/AdoptarForm";
 import FormSent from "../../form/FormSent";
 
-import { useFetchSingleDog } from "../../../hooks/fetchPerritos";
+import { useSingleDog } from "../../../hooks/fetchPerritos";
+
+import { calculateAge } from "../../Helpers/calcAge";
 
 const apiURL = process.env.REACT_APP_API_URL;
 
 const PerroItem = () => {
   const [currIndex, setCurrIndex] = useState(0);
-
   const ctx = useContext(FormContext);
-
   const { perro } = useParams();
 
-  const { isLoading, dogDescription } = useFetchSingleDog({ apiURL, perro });
+  const { isLoading, dogDescription } = useSingleDog({ apiURL, perro });
 
-  const createDate = (year: string, month: string) => {
-    const date = new Date(`${year}, ${month}, 1`).getTime();
-    return date;
-  };
-
-  const calcAge = (bornYear: string, bornMonth: string, actualTime: number) => {
-    const curDate = new Date();
-
-    return Math.floor(
-      (curDate.getTime() - createDate(bornYear, bornMonth)) / actualTime
-    );
-  };
+  const { dogYears, dogMonths } = calculateAge({
+    dogBirth: dogDescription?.born,
+  });
 
   if (isLoading) {
     return <IsLoading />;
@@ -78,52 +69,15 @@ const PerroItem = () => {
         <div className={classes.text}>
           <h2>{transformName(dogDescription!.dogName)}</h2>
           <p>{transformName(dogDescription!.sex)}</p>
-          <p>
-            {/* años */}
-            {calcAge(
-              dogDescription!.born.slice(0, 4),
-              dogDescription!.born.slice(5, 7),
-              1000 * 60 * 60 * 24 * 365.4
-            ) > 1
-              ? calcAge(
-                  dogDescription!.born.slice(0, 4),
-                  dogDescription!.born.slice(5, 7),
-                  1000 * 60 * 60 * 24 * 365.4
-                ) + " años "
-              : ""}
-            {calcAge(
-              dogDescription!.born.slice(0, 4),
-              dogDescription!.born.slice(5, 7),
-              1000 * 60 * 60 * 24 * 365.4
-            ) === 1
-              ? "1 año "
-              : ""}
-            {/* meses */}
-            {calcAge(
-              dogDescription!.born.slice(0, 4),
-              dogDescription!.born.slice(5, 7),
-              1000 * 60 * 60 * 24 * 30.4375
-            ) %
-              12 >
-            1
-              ? (calcAge(
-                  dogDescription!.born.slice(0, 4),
-                  dogDescription!.born.slice(5, 7),
-                  1000 * 60 * 60 * 24 * 30.4375
-                ) %
-                  12) +
-                " meses"
-              : ""}
-            {calcAge(
-              dogDescription!.born.slice(0, 4),
-              dogDescription!.born.slice(5, 7),
-              1000 * 60 * 60 * 24 * 30.4375
-            ) %
-              12 ===
-            1
-              ? "1 mes"
-              : ""}
-          </p>
+          {dogYears > 1 && <p>{dogYears + " años "}</p>}
+          {dogYears === 1 && dogMonths === 0 && <p>1 año</p>}
+          {dogYears === 1 && dogMonths === 1 && <p>1 año 1 mes</p>}
+          {dogYears === 1 && dogMonths > 1 && (
+            <p>{"1 año " + dogMonths + " meses"}</p>
+          )}
+          {dogYears < 1 && (
+            <p>{dogMonths > 1 ? dogMonths + " meses" : "1 mes"}</p>
+          )}
           <p>
             {transformName(
               transformSize(dogDescription!.size, dogDescription!.sex)

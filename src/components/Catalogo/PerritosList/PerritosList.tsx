@@ -9,7 +9,7 @@ import IsLoading from "../../Helpers/isLoading";
 import FilterPerritos from "./FilterPerritos";
 import PerritosCards from "./PerritosCards";
 import PerritosPagination from "./PerritosPagination";
-import { useFetchAllPerritos } from "../../../hooks/fetchPerritos";
+import { useAllPerritos } from "../../../hooks/fetchPerritos";
 
 const PerritosList = () => {
   const apiURL = process.env.REACT_APP_API_URL;
@@ -27,7 +27,7 @@ const PerritosList = () => {
   const [sortBy, setSortBy] = useState("dogName");
   const [filterSize, setFilterSize] = useState("");
 
-  const { isLoading, data, pageNumbers } = useFetchAllPerritos({
+  const { isLoading, data, pageNumbers } = useAllPerritos({
     apiURL,
     page,
     filterSize,
