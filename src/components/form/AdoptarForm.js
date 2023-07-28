@@ -6,14 +6,14 @@ import { useContext } from "react";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 
-import { transformName } from "../Helpers/transformName";
+import { capitalizeFirstLetter } from "../Helpers/transformName";
 
 const AdoptarForm = (props) => {
   const ctx = useContext(FormContext);
 
   const formik = useFormik({
     initialValues: {
-      dogName: `${transformName(props.dogName)}`,
+      dogName: `${capitalizeFirstLetter(props.dogName)}`,
       name: "",
       lastName: "",
       cel: "",

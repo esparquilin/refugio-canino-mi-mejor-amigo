@@ -3,7 +3,7 @@ import classes from "./PerroItem.module.css";
 import { useState, useContext } from "react";
 
 import {
-  transformName,
+  capitalizeFirstLetter,
   transformFemale,
   transformSize,
   behaviour,
@@ -21,7 +21,7 @@ import FormSent from "../../form/FormSent";
 
 import { useSingleDog } from "../../../hooks/fetchPerritos";
 
-import { calculateAge } from "../../Helpers/calcAge";
+import DogAge from "../DogAge";
 
 const apiURL = process.env.REACT_APP_API_URL;
 
@@ -31,10 +31,6 @@ const PerroItem = () => {
   const { perro } = useParams();
 
   const { isLoading, dogDescription } = useSingleDog({ apiURL, perro });
-
-  const { dogYears, dogMonths } = calculateAge({
-    dogBirth: dogDescription?.born,
-  });
 
   if (isLoading) {
     return <IsLoading />;
@@ -67,23 +63,17 @@ const PerroItem = () => {
         </div>
 
         <div className={classes.text}>
-          <h2>{transformName(dogDescription!.dogName)}</h2>
-          <p>{transformName(dogDescription!.sex)}</p>
-          {dogYears > 1 && <p>{dogYears + " años "}</p>}
-          {dogYears === 1 && dogMonths === 0 && <p>1 año</p>}
-          {dogYears === 1 && dogMonths === 1 && <p>1 año 1 mes</p>}
-          {dogYears === 1 && dogMonths > 1 && (
-            <p>{"1 año " + dogMonths + " meses"}</p>
-          )}
-          {dogYears < 1 && (
-            <p>{dogMonths > 1 ? dogMonths + " meses" : "1 mes"}</p>
-          )}
+          <h2>{capitalizeFirstLetter(dogDescription!.dogName)}</h2>
           <p>
-            {transformName(
+            <DogAge dogBirth={dogDescription!.born} />
+          </p>
+
+          <p>
+            {capitalizeFirstLetter(
               transformSize(dogDescription!.size, dogDescription!.sex)
             )}
           </p>
-          <p>{transformName(dogDescription!.breed)}</p>
+          <p>{capitalizeFirstLetter(dogDescription!.breed)}</p>
           <p
             style={{
               color: `${
@@ -91,7 +81,9 @@ const PerroItem = () => {
               }`,
             }}
           >
-            {transformName(behaviour(dogDescription!.dogB, "otros perros"))}
+            {capitalizeFirstLetter(
+              behaviour(dogDescription!.dogB, "otros perros")
+            )}
           </p>
           <p
             style={{
@@ -100,7 +92,9 @@ const PerroItem = () => {
               }`,
             }}
           >
-            {transformName(behaviour(dogDescription!.humanB, "personas"))}
+            {capitalizeFirstLetter(
+              behaviour(dogDescription!.humanB, "personas")
+            )}
           </p>
           <p
             style={{
@@ -109,27 +103,27 @@ const PerroItem = () => {
               }`,
             }}
           >
-            {transformName(
+            {capitalizeFirstLetter(
               behaviour(dogDescription!.animalB, "ganado y aves de corral")
             )}
           </p>
           <p className={classes.esterilizado}>
             {transformFemale(
-              transformName(
+              capitalizeFirstLetter(
                 dogDescription!.sterilized ? "esterilizado" : "no esterilizado"
               ),
               dogDescription!.sex
             )}
           </p>
           {dogDescription?.notes && (
-            <p>Nota: {transformName(dogDescription?.notes)}</p>
+            <p>Nota: {capitalizeFirstLetter(dogDescription?.notes)}</p>
           )}
           {dogDescription?.warning && (
             <div>
               <Card customCard={classes.card}>
                 <p className={classes.advertencia}>
                   <span>Advertencia:</span>{" "}
-                  {transformName(dogDescription?.warning)}
+                  {capitalizeFirstLetter(dogDescription?.warning)}
                 </p>
               </Card>
             </div>

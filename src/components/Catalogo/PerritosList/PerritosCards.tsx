@@ -5,11 +5,14 @@ import React, { useContext } from "react";
 import Card from "../../UI/Card";
 import { FormContext } from "../../../store/form-context";
 
-import { transformName, transformSize } from "../../Helpers/transformName";
-
-import { calculateAge } from "../../Helpers/calcAge";
+import {
+  capitalizeFirstLetter,
+  transformSize,
+} from "../../Helpers/transformName";
 
 import { allDogsData } from "../../../interfaces/dogInterfaces";
+
+import DogAge from "../DogAge";
 
 interface perritosPaginationProps {
   data: allDogsData | undefined;
@@ -32,46 +35,21 @@ const PerritosCards: React.FC<perritosPaginationProps> = ({ data }) => {
             <div className={classes["data-content"]}>
               <div className={classes.data}>
                 <h3 className={classes.name}>
-                  {transformName(perrito.dogName)}
+                  {capitalizeFirstLetter(perrito.dogName)}
                 </h3>
                 <ul className={classes["data-list"]}>
-                  <li>{transformName(perrito.sex)}</li>
-
-                  {calculateAge({ dogBirth: perrito.born }).dogYears > 1 && (
-                    <li>{`${
-                      calculateAge({ dogBirth: perrito.born }).dogYears
-                    } años`}</li>
-                  )}
-
-                  {calculateAge({ dogBirth: perrito.born }).dogYears === 1 &&
-                    calculateAge({ dogBirth: perrito.born }).dogMonths ===
-                      0 && <li>1 año</li>}
-
-                  {calculateAge({ dogBirth: perrito.born }).dogYears === 1 &&
-                    calculateAge({ dogBirth: perrito.born }).dogMonths ===
-                      1 && <li>1 año 1 mes</li>}
-
-                  {calculateAge({ dogBirth: perrito.born }).dogYears === 1 &&
-                    calculateAge({ dogBirth: perrito.born }).dogMonths > 1 && (
-                      <li>{`1 año ${
-                        calculateAge({ dogBirth: perrito.born }).dogMonths
-                      } meses`}</li>
-                    )}
-
-                  {calculateAge({ dogBirth: perrito.born }).dogYears < 1 && (
-                    <li>
-                      {calculateAge({ dogBirth: perrito.born }).dogMonths > 1
-                        ? `${
-                            calculateAge({ dogBirth: perrito.born }).dogMonths
-                          } meses`
-                        : "1 mes"}
-                    </li>
-                  )}
+                  <li>{capitalizeFirstLetter(perrito.sex)}</li>
 
                   <li>
-                    {transformName(transformSize(perrito.size, perrito.sex))}
+                    <DogAge dogBirth={perrito.born} />
                   </li>
-                  <li>{transformName(perrito.breed)}</li>
+
+                  <li>
+                    {capitalizeFirstLetter(
+                      transformSize(perrito.size, perrito.sex)
+                    )}
+                  </li>
+                  <li>{capitalizeFirstLetter(perrito.breed)}</li>
                 </ul>
               </div>
               <div className={classes.buttons}>

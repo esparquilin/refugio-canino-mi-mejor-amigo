@@ -1,4 +1,4 @@
-export const transformName = (name: string) => {
+export const capitalizeFirstLetter = (name: string) => {
   const newName = name.slice(0, 1).toUpperCase() + name.slice(1).toLowerCase();
 
   return newName;
