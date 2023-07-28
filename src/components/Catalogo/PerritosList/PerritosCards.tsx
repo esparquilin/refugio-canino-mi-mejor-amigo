@@ -7,6 +7,8 @@ import { FormContext } from "../../../store/form-context";
 
 import { transformName, transformSize } from "../../Helpers/transformName";
 
+import { calculateAge } from "../../Helpers/calcAge";
+
 import { allDogsData } from "../../../interfaces/dogInterfaces";
 
 interface perritosPaginationProps {
@@ -14,19 +16,6 @@ interface perritosPaginationProps {
 }
 
 const PerritosCards: React.FC<perritosPaginationProps> = ({ data }) => {
-  const createDate = (year: string, month: string) => {
-    const date = new Date(`${year}, ${month}, 1`).getTime();
-    return date;
-  };
-
-  const calcAge = (bornYear: string, bornMonth: string, time: number) => {
-    const curDate = new Date();
-
-    return Math.floor(
-      (curDate.getTime() - createDate(bornYear, bornMonth)) / time
-    );
-  };
-
   const ctx = useContext(FormContext);
 
   return (
@@ -47,52 +36,38 @@ const PerritosCards: React.FC<perritosPaginationProps> = ({ data }) => {
                 </h3>
                 <ul className={classes["data-list"]}>
                   <li>{transformName(perrito.sex)}</li>
-                  <li>
-                    {/* años */}
-                    {calcAge(
-                      perrito.born.slice(0, 4),
-                      perrito.born.slice(5, 7),
-                      1000 * 60 * 60 * 24 * 365.4
-                    ) > 1
-                      ? calcAge(
-                          perrito.born.slice(0, 4),
-                          perrito.born.slice(5, 7),
-                          1000 * 60 * 60 * 24 * 365.4
-                        ) + " años "
-                      : ""}
-                    {calcAge(
-                      perrito.born.slice(0, 4),
-                      perrito.born.slice(5, 7),
-                      1000 * 60 * 60 * 24 * 365.4
-                    ) === 1
-                      ? "1 año "
-                      : ""}
-                    {/* meses */}
-                    {calcAge(
-                      perrito.born.slice(0, 4),
-                      perrito.born.slice(5, 7),
-                      1000 * 60 * 60 * 24 * 30.4375
-                    ) %
-                      12 >
-                    1
-                      ? (calcAge(
-                          perrito.born.slice(0, 4),
-                          perrito.born.slice(5, 7),
-                          1000 * 60 * 60 * 24 * 30.4375
-                        ) %
-                          12) +
-                        " meses"
-                      : ""}
-                    {calcAge(
-                      perrito.born.slice(0, 4),
-                      perrito.born.slice(5, 7),
-                      1000 * 60 * 60 * 24 * 30.4375
-                    ) %
-                      12 ===
-                    1
-                      ? "1 mes"
-                      : ""}
-                  </li>
+
+                  {calculateAge({ dogBirth: perrito.born }).dogYears > 1 && (
+                    <li>{`${
+                      calculateAge({ dogBirth: perrito.born }).dogYears
+                    } años`}</li>
+                  )}
+
+                  {calculateAge({ dogBirth: perrito.born }).dogYears === 1 &&
+                    calculateAge({ dogBirth: perrito.born }).dogMonths ===
+                      0 && <li>1 año</li>}
+
+                  {calculateAge({ dogBirth: perrito.born }).dogYears === 1 &&
+                    calculateAge({ dogBirth: perrito.born }).dogMonths ===
+                      1 && <li>1 año 1 mes</li>}
+
+                  {calculateAge({ dogBirth: perrito.born }).dogYears === 1 &&
+                    calculateAge({ dogBirth: perrito.born }).dogMonths > 1 && (
+                      <li>{`1 año ${
+                        calculateAge({ dogBirth: perrito.born }).dogMonths
+                      } meses`}</li>
+                    )}
+
+                  {calculateAge({ dogBirth: perrito.born }).dogYears < 1 && (
+                    <li>
+                      {calculateAge({ dogBirth: perrito.born }).dogMonths > 1
+                        ? `${
+                            calculateAge({ dogBirth: perrito.born }).dogMonths
+                          } meses`
+                        : "1 mes"}
+                    </li>
+                  )}
+
                   <li>
                     {transformName(transformSize(perrito.size, perrito.sex))}
                   </li>
