@@ -21,7 +21,7 @@ import FormSent from "../../form/FormSent";
 
 import { useSingleDog } from "../../../hooks/fetchPerritos";
 
-import DogAge from "../DogAge";
+import DogAge from "../../Helpers/DogAge";
 
 const apiURL = process.env.REACT_APP_API_URL;
 

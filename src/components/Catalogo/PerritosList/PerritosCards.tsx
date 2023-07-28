@@ -12,7 +12,7 @@ import {
 
 import { allDogsData } from "../../../interfaces/dogInterfaces";
 
-import DogAge from "../DogAge";
+import DogAge from "../../Helpers/DogAge";
 
 interface perritosPaginationProps {
   data: allDogsData | undefined;
