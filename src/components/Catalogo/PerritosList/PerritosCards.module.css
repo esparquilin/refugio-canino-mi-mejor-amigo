@@ -56,7 +56,7 @@
 }
 
 .button-details:hover {
-  background-color: var(--color-gray-5);
+  background-color: var(--color-secondary-light-3);
   color: white;
   cursor: pointer;
 }

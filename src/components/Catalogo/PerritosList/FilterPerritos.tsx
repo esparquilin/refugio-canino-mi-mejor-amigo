@@ -89,7 +89,11 @@ const FilterPerritos: React.FC<filterPerritosProps> = ({
               </div>
               <div>
                 <h3>Ordenar por:</h3>
-                <select id="sortBy" defaultValue={sortBy}>
+                <select
+                  id="sortBy"
+                  defaultValue={sortBy}
+                  className={classes.sortBy}
+                >
                   <option value="dogName">A-Z</option>
                   <option value="-dogName">Z-A</option>
                   <option value="-born">De cachorro a grande</option>
