@@ -43,7 +43,7 @@ export const useAllPerritos = ({
       }
 
       return () => {
-        controller.abort("Abortado");
+        controller.abort();
       };
     };
 

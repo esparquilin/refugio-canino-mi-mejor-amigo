@@ -1,6 +1,6 @@
 import classes from "./Footer.module.css";
 
-import { BsFacebook, BsInstagram, BsTelephone, BsHouse } from "react-icons/bs";
+import { BsFacebook, BsInstagram, BsTelephone } from "react-icons/bs";
 import { FaTiktok } from "react-icons/fa";
 
 import logo from "../../assets/images/icon-image.png";
@@ -18,7 +18,6 @@ const Footer = () => {
           <h3>¡Contactanos!</h3>
 
           <div>
-            <BsHouse className={classes.icon} />
             <p>
               Canal Sin Nombre No. 57, 50400 Temascalcingo de José María
               Velasco, Méx.
