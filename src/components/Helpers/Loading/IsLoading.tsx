@@ -1,4 +1,4 @@
-import classes from "./isLoading.module.css";
+import classes from "./IsLoading.module.css";
 import { VscLoading } from "react-icons/vsc";
 
 const IsLoading = () => {

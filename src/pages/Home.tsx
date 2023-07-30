@@ -1,4 +1,4 @@
-import Wrapper from "../components/Helpers/Wrapper";
+import Wrapper from "../components/Helpers/Wrapper/Wrapper";
 import Activities from "../components/Home/Activities/Activities";
 import Hero from "../components/Home/Hero";
 import SuccessStories from "../components/Home/SuccessStories";

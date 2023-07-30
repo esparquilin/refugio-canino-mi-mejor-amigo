@@ -1,11 +1,11 @@
 import React, { useState } from "react";
-import Wrapper from "../../Helpers/Wrapper";
+import Wrapper from "../../Helpers/Wrapper/Wrapper";
 
 import perrito from "../../../assets/images/no-perritos.jpg";
 
 import classes from "./PerritosList.module.css";
 
-import IsLoading from "../../Helpers/isLoading";
+import IsLoading from "../../Helpers/Loading/IsLoading";
 import FilterPerritos from "./FilterPerritos";
 import PerritosCards from "./PerritosCards";
 import PerritosPagination from "./PerritosPagination";

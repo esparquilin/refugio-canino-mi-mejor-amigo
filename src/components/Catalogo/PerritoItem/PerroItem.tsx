@@ -8,7 +8,7 @@ import {
   transformSize,
   behaviour,
 } from "../../Helpers/transformName";
-import IsLoading from "../../Helpers/isLoading";
+import IsLoading from "../../Helpers/Loading/IsLoading";
 
 import Card from "../../UI/Card";
 import Button from "../../UI/Button";
