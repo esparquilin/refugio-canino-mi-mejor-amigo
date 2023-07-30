@@ -5,7 +5,9 @@ const IsLoading = () => {
   return (
     <>
       <div className={classes.background} />
-      <VscLoading className={classes.loading} />
+      <div className={classes["loading-icon-container"]}>
+        <VscLoading className={classes["loading-icon"]} />
+      </div>
     </>
   );
 };
